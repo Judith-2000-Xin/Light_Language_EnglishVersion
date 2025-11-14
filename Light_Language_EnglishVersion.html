@@ -63,13 +63,47 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
 .scale-wrap .end-label{font-size:14px;color:var(--muted);white-space:nowrap;align-self:center}
 
 /* Mobile */
-@media(max-width: 480px) {
-  .likert-row { margin: 16px 0; font-size: 14px; }
-  .scale-wrap { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; width: 100%; justify-items: center; }
-  .scale label { font-size: 10px; flex-direction: column; align-items: center; text-align: center; }
-  .scale input[type="radio"] { width: 16px; height: 16px; }
-  .end-label { font-size: 10px; text-align: center; }
+@media (max-width: 480px) {
+  .likert-row {
+    margin: 16px 0;
+    font-size: 14px;
+  }
+
+  /* 手機版：上下排列「端點文字－量表－端點文字」，避免橫向超出螢幕 */
+  .scale-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+    width: 100%;
+    justify-items: center;
+  }
+
+  .scale {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .scale label {
+    font-size: 10px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .scale input[type="radio"] {
+    width: 16px;
+    height: 16px;
+  }
+
+  .scale-wrap .end-label {
+    font-size: 11px;
+    text-align: center;
+    white-space: normal;  /* 允許 Strongly agree / disagree 在手機上換行 */
+  }
 }
+
 </style>
 </head>
 <body>
