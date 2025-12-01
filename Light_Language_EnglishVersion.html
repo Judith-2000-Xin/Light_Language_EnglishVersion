@@ -69,7 +69,7 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
     font-size: 14px;
   }
 
-  /* 手機版：上下排列「端點文字－量表－端點文字」，避免橫向超出螢幕 */
+  /* Mobile: stack "end labels – scale – end labels" vertically to avoid horizontal overflow */
   .scale-wrap {
     display: grid;
     grid-template-columns: 1fr;
@@ -100,7 +100,7 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
   .scale-wrap .end-label {
     font-size: 11px;
     text-align: center;
-    white-space: normal;  /* 允許 Strongly agree / disagree 在手機上換行 */
+    white-space: normal;  /* allow Strongly agree / disagree to wrap on small screens */
   }
 }
 
@@ -114,11 +114,11 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
     <section id="step0" class="card consent">
       <h3>Study Information and Consent</h3>
       <p>
-        Hello, and thank you for helping with this questionnaire. This study is conducted by the Graduate Institute of Color and Lighting Technology at National Taiwan University of Science and Technology. It aims to investigate the subjective impressions and psychological responses to "Light Language" across different age groups. The questionnaire is anonymous, and the data will be used only for academic research and analysis. It will take about 5–8 minutes to complete. Thank you for your participation.
+        Thank you for your interest in this study. This survey is conducted by the Graduate Institute of Color and Lighting Technology at National Taiwan University of Science and Technology. The purpose of the study is to examine subjective impressions and psychological responses to “light language” under different lighting conditions and across different age groups. The questionnaire is anonymous, and all responses will be used solely for academic research and statistical analysis. Completing the survey takes approximately 5–8 minutes. We sincerely appreciate your participation.
       </p>
       <label style="display:flex;gap:10px;margin-top:14px;align-items:center">
         <input id="consent" type="checkbox" style="width:20px;height:20px">
-        <span>I have read and agree with the above information and am willing to participate anonymously in this study.</span>
+        <span>I have read the information above and voluntarily consent to take part in this study anonymously.</span>
       </label>
       <div class="btnbar" style="justify-content:flex-end">
         <button id="toStep1" class="btn primary" disabled>Next page</button>
@@ -127,9 +127,8 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
 
     <!-- Basic Information -->
     <section id="step1" class="card" style="display:none">
-      <h3>Basic Information (anonymous)</h3>
+      <h3>Basic demographic information (anonymous)</h3>
       <div class="row">
-        <!-- FIX: add missing double quote -->
         <div class="field"><label>Age</label>
           <select id="age">
             <option value="">Please select</option>
@@ -150,7 +149,7 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
             <option>Prefer not to say</option>
           </select>
         </div>
-        <div class="field"><label>Frequency of desk lamp use</label>
+        <div class="field"><label>Frequency of desk-lamp use</label>
           <select id="lampFreq">
             <option value="">Please select</option>
             <option>Almost every day</option>
@@ -159,7 +158,7 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
             <option>Almost never</option>
           </select>
         </div>
-        <div class="field"><label>Device used to answer</label>
+        <div class="field"><label>Device used to complete the survey</label>
           <select id="device">
             <option value="">Please select</option>
             <option>Desktop computer</option>
@@ -178,7 +177,7 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
     <!-- Simulation & Ratings -->
     <section id="step2" style="display:none">
       <div class="card" style="display:flex;justify-content:space-between;align-items:center">
-        <span class="badge" id="sceneBadge">(Loading…)</span>
+        <span class="badge" id="sceneBadge">Loading scenario…</span>
         <span style="color:var(--muted);font-size:14px"><span id="progressText">0</span> / 12</span>
       </div>
 
@@ -196,12 +195,12 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
 
       <div class="card">
         <p style="color:var(--muted);font-size:14px;margin:0 0 12px;text-align:center;">
-          This questionnaire uses a 7-point scale (1 = strongly disagree, 7 = strongly agree).
+          This questionnaire uses a 7-point Likert scale (1 = strongly disagree, 7 = strongly agree).
         </p>
         <form id="form">
           <div class="likert-row">
             <div class="likert-head">
-              This lighting scenario makes me want to end the current activity or enter a rest state.
+              This lighting scenario makes me feel inclined to stop the current activity or move into a resting state.
             </div>
             <div class="scale-wrap">
               <span class="end-label">Strongly disagree</span>
@@ -212,7 +211,7 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
 
           <div class="likert-row">
             <div class="likert-head">
-              This lighting scenario helps me stay calm and maintain concentration.
+              This lighting scenario helps me remain calm and maintain concentration.
             </div>
             <div class="scale-wrap">
               <span class="end-label">Strongly disagree</span>
@@ -223,7 +222,7 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
 
           <div class="likert-row">
             <div class="likert-head">
-              This lighting scenario reminds me to return to the current task.
+              This lighting scenario prompts me to refocus on the current task.
             </div>
             <div class="scale-wrap">
               <span class="end-label">Strongly disagree</span>
@@ -234,7 +233,7 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
 
           <div class="likert-row">
             <div class="likert-head">
-              This lighting scenario makes me feel soothed or relaxed.
+              This lighting scenario makes me feel calm or relaxed.
             </div>
             <div class="scale-wrap">
               <span class="end-label">Strongly disagree</span>
@@ -264,10 +263,10 @@ select{width:100%;padding:12px;border:1px solid #2a394b;border-radius:8px;backgr
 
     <!-- Thank-you page -->
     <section id="thanks" class="card" style="display:none">
-      <h3><strong>Thank you for your responses!</strong></h3>
+      <h3><strong>Thank you for your responses.</strong></h3>
       <p style="color:var(--muted);line-height:1.9">
-        Your valuable responses have been successfully submitted and are stored anonymously in the research database.<br/>
-        This questionnaire is used only for academic research and statistical analysis and does not involve any personal identification.
+        Your responses have been submitted successfully and are stored anonymously in our research database.<br/>
+        The data will be used only for academic research and statistical analysis and will not be linked to any personally identifiable information.
       </p>
     </section>
   </div>
@@ -290,44 +289,44 @@ const rgba=(c,a)=>`rgba(${c.r},${c.g},${c.b},${a})`;
 const SCENES_RAW = [
   // Q1: No animation (only describes appearance, does not guide emotion)
   { id:"Q1-DeepStudy", ratio:[100,0,0], intensity:1.00, animation:"none", cycleSec:10,
-    desc:"Cool-white impression; brightness remains constant with no rhythmic change." },
+    desc:"Cool-white appearance; brightness is constant with no rhythmic modulation." },
 
   { id:"Q1-HighEfficiencyWork", ratio:[100,7,16], intensity:0.95, animation:"none", cycleSec:10,
-    desc:"Daylight-like impression; medium–high brightness with no rhythmic change." },
+    desc:"Daylight-like appearance; medium-to-high brightness with no rhythmic modulation." },
 
   { id:"Q1-DailyTasks", ratio:[100,0,72], intensity:0.85, animation:"none", cycleSec:10,
-    desc:"Daylight-like impression; medium brightness with no rhythmic change." },
+    desc:"Daylight-like appearance; medium brightness with no rhythmic modulation." },
 
   // Q2: Has rhythm or gradual change, but only objectively described
   { id:"Q2-CCTGuidance", ratio:[97,15,100], ratioB:[27,52,100], intensity:0.85, animation:"ramp", cycleSec:10,
-    desc:"Gradually shifts from a warm-white impression to a daylight-like impression while brightness remains stable." },
+    desc:"Gradually shifts from a warm-white appearance to a daylight-like appearance while brightness remains stable." },
 
   { id:"Q2-GentlePulse", ratio:[68,20,100], intensity:0.85, animation:"pulse", freq:0.4, amp:0.35, cycleSec:10,
-    desc:"Daylight-like impression; brightness fluctuates with a low-frequency, regular and gentle pulse." },
+    desc:"Daylight-like appearance; brightness shows low-frequency, regular, and gentle pulsation." },
 
   { id:"Q2-BeamFocus", ratio:[100,0,60], intensity:0.90, animation:"pulse", freq:1.0, amp:0.40, cycleSec:10,
-    desc:"Daylight-like impression; central area is more concentrated, accompanied by slight brightness fluctuations." },
+    desc:"Daylight-like appearance; light is more concentrated in the central area, accompanied by mild brightness modulation." },
 
   { id:"Q2-AtmosphereShift", ratio:[2,100,0], ratioB:[30,46,100], intensity:0.85, animation:"ramp", cycleSec:8,
-    desc:"Color tone shifts from a warm-white impression to a candlelight-like impression while brightness remains stable." },
+    desc:"Color tone shifts from a warm-white appearance to a candlelight-like appearance while brightness remains stable." },
 
   // Q3: Gradually dims to lights-off
   { id:"Q3-GentleForceToOff", ratio:[20,81,100], intensity:0.70, animation:"powerdown", cycleSec:8, holdBlack:1, warmupSec:0,
-    desc:"Warm-white tone; brightness gradually decreases over a period of time until the light turns off." },
+    desc:"Warm-white tone; brightness gradually decreases over time until the light switches off." },
 
   { id:"Q3-GoodnightSequenceToOff", ratio:[2,100,0], intensity:0.85, animation:"powerdown", cycleSec:10, holdBlack:1.5, warmupSec:0,
-    desc:"Near candlelight impression; brightness gradually decreases over a period of time until the light turns off." },
+    desc:"Near-candlelight appearance; brightness gradually decreases over time until the light switches off." },
 
   // Q4: Reminder and breathing patterns
   { id:"Q4-SunsetReminder", ratio:[2,100,0], ratioB:[97,15,100], intensity:0.9, animation:"ramp", cycleSec:8,
     desc:"Color tone gradually shifts from warm white to candlelight while brightness remains stable." },
 
   { id:"Q4-BreathingHalo", ratio:[4,100,63], intensity:0.70, animation:"breath", freq:0.42, amp:0.50, cycleSec:12,
-    desc:"Near candlelight impression; the halo slowly expands and contracts with a breathing-like rhythm." },
+    desc:"Near-candlelight appearance; the halo slowly expands and contracts with a breathing-like rhythm." },
 
   { id:"Q4-PomodoroTimer", ratio:[6,100,77], ratioB:[100,1,36], intensity:1.0, animation:"pomodoro",
     flashes:5, onDur:0.25, offDur:0.35, holdSec:5, cycleSec:8,
-    desc:"Uses warm white for several short flashes, then switches to a daylight-like impression and stays on for several seconds." }
+    desc:"A sequence of brief warm-white flashes followed by a steady daylight-like appearance for several seconds." }
 ];
 
 /* ============ DOM and state ============ */
@@ -354,7 +353,6 @@ const sceneBadge=document.getElementById('sceneBadge'); const progressText=docum
 const form=document.getElementById('form'); const prevBtn=document.getElementById('prevBtn'); const nextBtn=document.getElementById('nextBtn');
 
 /* Reminder text (functions) */
-/* ↓↓↓ According to your instruction, keep only the "Scenario description" line ↓↓↓ */
 const TEXT_DEFAULT = (desc) => `
   <div style="color:var(--muted); font-size:15px; line-height:1.6;">
     <strong>Scenario description: </strong>${desc}
@@ -363,7 +361,6 @@ const TEXT_Q1 = (desc) => `
   <div style="color:var(--muted); font-size:15px; line-height:1.6;">
     <strong>Scenario description: </strong>${desc} (no animation)
   </div>`;
-/* ↑↑↑ Others remain unchanged ↑↑↑ */
 
 let participant_id = (crypto.randomUUID? crypto.randomUUID(): Math.random().toString(36).slice(2));
 let seed = Math.floor(Math.random()*1e9);
@@ -373,7 +370,7 @@ let order_ids = SCENES.map(s=>s.id).join('|'); // declare once only
 
 let idx = 0, answers = [], rafId = 0, t0 = 0, sceneStartTs = 0;
 let surveyStartTs = new Date().toISOString();
-let isSubmitting = false;   // ★ Avoid duplicate submission
+let isSubmitting = false;   // Avoid duplicate submission
 
 /* ============ Consent/basic-info gating ============ */
 function updateConsent(){ toStep1.disabled = !consent.checked; }
@@ -562,7 +559,7 @@ nextBtn.addEventListener('click', async () => {
 
   const rec = collectCurrent();
   if (!rec) {
-    alert('Please complete all five ratings (1–7) on this page.');
+    alert('Please complete all five items (ratings 1–7) on this page before continuing.');
     return;
   }
   answers[idx] = rec;
@@ -600,7 +597,7 @@ nextBtn.addEventListener('click', async () => {
     prevBtn.disabled = false;
     nextBtn.disabled = false;
     nextBtn.textContent = oldText;
-    alert('Submission failed. Please try again later.');
+    alert('Submission was not successful. Please try again in a moment.');
   }
 });
 
